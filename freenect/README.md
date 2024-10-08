@@ -54,7 +54,8 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="045e", ATTR{idProduct}=="02bf", MODE="0666"
 
 7. "Failed to set the LED of K4W or 1473 device: LIBUSB_ERROR_IO" was a fatal error we faced. To rectify the error, we need to add **audios. bin** manually.
 ```
-cd libfreeconnect
+cd libfreeconnect(or use this            python3 ./src/fwfetcher.py
+)
 python3 ./src/fwfetcher.py
 ```
 This will add the **audio.bin** file to the libfreenect/src folder. Move it to the installed libfreeconnect library location.
