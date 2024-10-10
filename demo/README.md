@@ -2,12 +2,12 @@
 Use rasberry pi 5 to detect the green object only
 
 ## Steps
-On the Kobuki
-It is better if you can check by connecting to a screen
-Press button on the rasberry pi
-Check whether your laptop and rasberry pi are connceted to the same wifi
-Find the IP Address of the rasberry pi (You can use Angry IP Scanner)
-Connect rasberry pi to your laptop using RealVNC Viewer
+1. On the Kobuki.
+2. It is better if you can check the rasberry pi by connecting to a screen
+3. Press button on the rasberry pi
+4. Check whether your laptop and rasberry pi are connceted to the same wifi
+5. Find the IP Address of the rasberry pi (You can use Angry IP Scanner)
+6. Connect rasberry pi to your laptop using RealVNC Viewer
 ```
 cd Desktop
 cd New
@@ -27,8 +27,9 @@ Use rasberry pi 3 to detect the red object only
 **Steps**
 1. If you are not using a SD card for booting (When you are using a USB),
 2. Remove all other USB devices rather than the USB which you are using USB for booting. (Connect them after finishing the booting process)
-3. On the Kobuki, it is better if you can check it by connecting to a screen
-4. Check whether your laptop and rasberry pi are connceted to the same wifi
+3. On the Kobuki
+4. It is better if you can check the rasberry pi by connecting to a screen
+5. Check whether your laptop and rasberry pi are connceted to the same wifi
 4. Find the IP Address of the rasberry pi (You can use Angry IP Scanner)
 5. Connect rasberry pi to your laptop using RealVNC Viewer
 6. Open the terminal
