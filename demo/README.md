@@ -1,38 +1,71 @@
-# rasberry pi 5
-Use rasberry pi 5 to detect the green object only
+# Raspberry Pi Object Tracking Guide
 
-## Steps
-1. On the Kobuki.
-2. It is better if you can check the rasberry pi by connecting to a screen
-3. Press button on the rasberry pi
-4. Check whether your laptop and rasberry pi are connceted to the same wifi
-5. Find the IP Address of the rasberry pi (You can use Angry IP Scanner)
-6. Connect rasberry pi to your laptop using RealVNC Viewer
-```
-cd Desktop
-cd New
-cd demo
-```
-finalgreenball.py is used to track a green ball and place it in a destination
-finalgreenballinfinite.py will track and place the green ball and repeat it in a loop
+This guide provides steps to set up Raspberry Pi 5 and Raspberry Pi 3 to detect green and red objects, respectively. The devices are used with Kobuki robots for object detection and tracking tasks.
 
-Run the relevant code using the following line
+## Raspberry Pi 5: Green Object Detection
+
+### Steps:
+
+1. **Turn On the Kobuki**  
+   Ensure the Kobuki robot is powered on before proceeding.
+
+2. **Connect Raspberry Pi 5 to a Screen**  
+   Connect the Raspberry Pi 5 to a monitor to check the setup visually.
+
+3. **Press the Button on Raspberry Pi 5**  
+   Press the appropriate button on the Pi to begin booting or starting the process.
+
+4. **Ensure the Same Wi-Fi Network**  
+   Make sure that both your laptop and Raspberry Pi 5 are connected to the same Wi-Fi network.
+
+5. **Find Raspberry Pi's IP Address**  
+   Use the Angry IP Scanner to detect the IP address of the Raspberry Pi.
+
+6. **Connect Using RealVNC Viewer**  
+   Use RealVNC Viewer to connect to Raspberry Pi from your laptop via the IP address.
+
+7. **Run the Green Ball Detection Script**  
+   Navigate to the relevant folder and run the script to detect the green object:
+   
+   ```bash
+   cd Desktop
+   cd New
+   cd demo
+
+* To track and place the green ball once, run:
+```
+python3 finalgreenball.py
+```
+* To track and place the green ball in a continuous loop, run:
 ```
 python3 finalgreenballinfinite.py
 ```
 
-# rasberry pi 3
-Use rasberry pi 3 to detect the red object only
+## Raspberry Pi 3: Red Object Detection
+###Steps:
+## 1. **Boot from USB (if applicable)**
+If you are using a USB for booting instead of an SD card:
+- Remove all USB devices except the bootable USB.
+- Connect other USB devices after the booting process is complete.
 
-**Steps**
-1. If you are not using a SD card for booting (When you are using a USB),
-2. Remove all other USB devices rather than the USB which you are using USB for booting. (Connect them after finishing the booting process)
-3. On the Kobuki
-4. It is better if you can check the rasberry pi by connecting to a screen
-5. Check whether your laptop and rasberry pi are connceted to the same wifi
-4. Find the IP Address of the rasberry pi (You can use Angry IP Scanner)
-5. Connect rasberry pi to your laptop using RealVNC Viewer
-6. Open the terminal
+## 2. **Turn On the Kobuki**
+Ensure the Kobuki robot is powered on.
+
+## 3. **Connect Raspberry Pi 3 to a Screen**
+Similar to the Raspberry Pi 5, it is recommended to connect a monitor for checking the setup.
+
+## 4. **Ensure the Same Wi-Fi Network**
+Ensure both your laptop and Raspberry Pi 3 are connected to the same Wi-Fi network.
+
+## 5. **Find Raspberry Pi's IP Address**
+Use Angry IP Scanner to find the IP address of Raspberry Pi 3.
+
+## 6. **Connect Using RealVNC Viewer**
+Connect to Raspberry Pi 3 using RealVNC Viewer via its IP address.
+
+## 7. **Run the Red Object Detection Script**
+Open the terminal and navigate to the relevant folder to run the red object detection script.
+
 ```
 cd Desktop
 source ./bin/activate
@@ -40,19 +73,19 @@ cd 'New folder'
 cd Kobuki-python
 cd demo
 ```
-testFinalOnce.py is used to track a red box and place it in the destination once
-testFinalInfinity.py will track and place the red box and repeat it in a infinite loop
-
-Run the relevant code using the following line
+* To track and place the red object once, run:
+```
+python testFinalOnce.py
+```
+* To track and place the red object in a continuous loop, run:
 ```
 python testFinalInfinity.py
 ```
+Troubleshooting
+If you encounter any issues, feel free to contact the following people for assistance:
 
-**If you are changing things inside the rasberry pi, then change your paths accordingly**
-
-# If there is a problem,
-1. Call 0765820661 - Sahan
-2. Call 0787057255 - Rashmika
-3. Call 0714559195 - Dineth
-
-
+Sahan - 0765820661
+Rashmika - 0787057255
+Dineth - 0714559195
+Note:
+If you modify anything within Raspberry Pi, remember to adjust the paths accordingly.
