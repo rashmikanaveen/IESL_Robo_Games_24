@@ -44,7 +44,7 @@ def main():
         logger.error("Could not open video stream.")
         return
 
-    logger.info("Starting red object detection. Press 'q' to quit.")
+    logger.info("Starting green object detection. Press 'q' to quit.")
     
     rotation_counter = 0  # To track the number of rotations
     MAX_ROTATIONS = 360    # Assuming each turn_left is ~10 degrees, 3600 degrees total
@@ -70,7 +70,7 @@ def main():
         brightness_factor = brightness / 100.0
         frame = cv2.convertScaleAbs(frame, alpha=brightness_factor, beta=0)
         
-        # Update the red_frame with the adjusted frame
+        # Update the green_frame with the adjusted frame
         red_frame = frame.copy()
 
         # Define frame dimensions
@@ -83,11 +83,12 @@ def main():
             red_hsv = cv2.cvtColor(red_frame, cv2.COLOR_BGR2HSV)
 
             # Define the lower and upper bounds for the first range of red color in HSV
-            lower_red1 = np.array([35, 40, 40])
-            upper_red1 = np.array([75, 255, 255])
+            lower_red1 = np.array([40, 40, 40])      # Updated for green
+            upper_red1 = np.array([80, 255, 255])    # Updated for green
 
-            lower_red2 = np.array([75, 40, 40])
-            upper_red2 = np.array([95, 255, 255])
+            # Define the lower and upper bounds for the second range of green color in HSV
+            lower_red2 = np.array([40, 40, 40])         # Set to zeros to disable the second mask
+            upper_red2 = np.array([80, 255, 255]) 
 
             # Create masks for red color
             mask1 = cv2.inRange(red_hsv, lower_red1, upper_red1)
@@ -120,7 +121,7 @@ def main():
             AREA_THRESHOLD = 500  # Adjust this value based on your requirements
 
             if largest_red_contour is not None and cv2.contourArea(largest_red_contour) > AREA_THRESHOLD:
-                logger.debug("Red object detected")
+                logger.debug("green object detected")
                 red_object_detected = True
                 # Compute the center and radius of the contour
                 (x, y), radius = cv2.minEnclosingCircle(largest_red_contour)
@@ -136,15 +137,15 @@ def main():
                 cX, cY = center
 
                 # Determine position
-                if cX < FRAME_WIDTH * 0.25:
+                if cX < FRAME_WIDTH * 0.35:
                     position = 'left'
-                elif cX > FRAME_WIDTH * 0.75:
+                elif cX > FRAME_WIDTH * 0.65:
                     position = 'right'
                 else:
                     position = 'center'
 
                 # Determine distance based on object's vertical position
-                bottom_threshold = FRAME_HEIGHT * 0.8  # Consider bottom 20% of the screen as 'near'
+                bottom_threshold = FRAME_HEIGHT * 0.9  # Consider bottom 20% of the screen as 'near'
                 if cY > bottom_threshold:
                     distance = 'near'
                 else:
@@ -200,12 +201,12 @@ def main():
             # Convert BGR to HSV for red processing
             red_hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
 
-            # Define the lower and upper bounds for red color in HSV with reduced sensitivity
-            lower_red1 = np.array([0, 100, 100])
-            upper_red1 = np.array([10, 255, 255])
+            lower_red1 = np.array([40, 40, 40])      # Updated for green
+            upper_red1 = np.array([80, 255, 255])    # Updated for green
 
-            lower_red2 = np.array([160, 100, 100])
-            upper_red2 = np.array([179, 255, 255])
+            # Define the lower and upper bounds for the second range of green color in HSV
+            lower_red2 = np.array([40, 40, 40])         # Set to zeros to disable the second mask
+            upper_red2 = np.array([80, 255, 255])
 
             # Create masks for red color
             mask1 = cv2.inRange(red_hsv, lower_red1, upper_red1)
@@ -234,12 +235,12 @@ def main():
                     largest_target_red_contour = contour
 
             # Define threshold for stopping
-            STOP_AREA_THRESHOLD = FRAME_AREA * 0.15
+            STOP_AREA_THRESHOLD = FRAME_AREA * 0.25
 
             if largest_target_red_contour is not None and cv2.contourArea(largest_target_red_contour) > 0:
                 target_red_detected = True
                 current_red_area = cv2.contourArea(largest_target_red_contour)
-                logger.debug(f"Target red area: {current_red_area}")
+                logger.debug(f"Target green area: {current_red_area}")
 
                 # Compute the center of the contour
                 M = cv2.moments(largest_target_red_contour)
@@ -251,38 +252,38 @@ def main():
 
                 # Draw the contour and center
                 cv2.drawContours(frame, [largest_target_red_contour], -1, (0, 0, 255), 2)
-                cv2.circle(frame, (cX, cY), 5, (0, 255, 0), -1)
+                cv2.circle(frame, (cX, cY), 5, (255, 0, 0), -1)
 
                 # Determine position
-                if cX < FRAME_WIDTH * 0.3:
+                if cX < FRAME_WIDTH * 0.35:
                     position = 'left'
-                elif cX > FRAME_WIDTH * 0.7:
+                elif cX > FRAME_WIDTH * 0.65:
                     position = 'right'
                 else:
                     position = 'center'
 
-                logger.debug(f"Target red position: {position}")
+                logger.debug(f"Target green position: {position}")
 
                 # Decide action based on position
                 if position == 'left':
                     turn_left(my_kobuki, 1)
-                    cv2.putText(frame, "Turning Left to Red", (10, 30),
+                    cv2.putText(frame, "Turning Left to green", (10, 30),
                                 cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
                 elif position == 'right':
                     turn_right(my_kobuki, 1)
-                    cv2.putText(frame, "Turning Right to Red", (10, 30),
+                    cv2.putText(frame, "Turning Right to green", (10, 30),
                                 cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
                 elif position == 'center':
-                    # Move towards the red object
+                    # Move towards the green object
                     move_forward_optimized(my_kobuki)
-                    cv2.putText(frame, "Moving Forward to Red", (10, 30),
+                    cv2.putText(frame, "Moving Forward to green", (10, 30),
                                 cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
 
                 # Check if the red area exceeds the threshold
                 if current_red_area > STOP_AREA_THRESHOLD:
-                    logger.info("Large red object detected. Stopping.")
+                    logger.info("Large green object detected. Stopping.")
                     my_kobuki.move(0, 0, 0)
-                    cv2.putText(frame, "Red object large. Stopping.", (10, 60),
+                    cv2.putText(frame, "green object large. Stopping.", (10, 60),
                                 cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
                     push_completed = True
                     break
@@ -292,16 +293,16 @@ def main():
             if not target_red_detected:
                 # Red object not detected
                 if rotation_counter >= MAX_ROTATIONS:
-                    logger.info("Target red object not found after maximum rotations. Stopping.")
+                    logger.info("Target green object not found after maximum rotations. Stopping.")
                     my_kobuki.move(0, 0, 0)
-                    cv2.putText(frame, "Target Red object not found. Stopping.", (10, 30),
+                    cv2.putText(frame, "Target green object not found. Stopping.", (10, 30),
                                 cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
                     break
                 else:
                     turn_left(my_kobuki, 1)
                     rotation_counter += 1
-                    logger.debug(f"Searching for Red... Rotation {rotation_counter*10}°")
-                    cv2.putText(frame, f"Searching for Red... Rotation {rotation_counter*10}°", (10, 30),
+                    logger.debug(f"Searching for green... Rotation {rotation_counter*10}°")
+                    cv2.putText(frame, f"Searching for green... Rotation {rotation_counter*10}°", (10, 30),
                                 cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
 
         # Display the resulting frame with drawings
