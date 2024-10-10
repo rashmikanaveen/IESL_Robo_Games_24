@@ -89,11 +89,12 @@ def main():
                 red_hsv = cv2.cvtColor(red_frame, cv2.COLOR_BGR2HSV)
 
                 # Define the lower and upper bounds for the first range of red color in HSV
-                lower_red1 = np.array([0, 70, 50])
-                upper_red1 = np.array([10, 255, 255])
+                lower_red1 = np.array([40, 40, 40])      # Updated for green
+                upper_red1 = np.array([80, 255, 255])    # Updated for green
 
-                lower_red2 = np.array([160, 100, 100])
-                upper_red2 = np.array([180, 255, 255])
+                # Define the lower and upper bounds for the second range of green color in HSV
+                lower_red2 = np.array([40, 40, 40])         # Set to zeros to disable the second mask
+                upper_red2 = np.array([80, 255, 255]) 
 
                 # Create masks for red color
                 mask1 = cv2.inRange(red_hsv, lower_red1, upper_red1)
