@@ -24,13 +24,13 @@ python3 finalgreenballinfinite.py
 # rasberry pi 3
 Use rasberry pi 3 to detect the red object only
 
-> [!tip] Steps
-> 1. If you are not using a SD card for booting (When you are using a USB),
-> 2. Remove all other USB devices rather than the USB which you are using USB for booting. (Connect them after finishing the booting process)
-> 3. On the Kobuki, it is better if you can check it by connecting to a screen
-> 4. Check whether your laptop and rasberry pi are connceted to the same wifi
-> 4. Find the IP Address of the rasberry pi (You can use Angry IP Scanner)
-> 5. Connect rasberry pi to your laptop using RealVNC Viewer
+**Steps**
+1. If you are not using a SD card for booting (When you are using a USB),
+2. Remove all other USB devices rather than the USB which you are using USB for booting. (Connect them after finishing the booting process)
+3. On the Kobuki, it is better if you can check it by connecting to a screen
+4. Check whether your laptop and rasberry pi are connceted to the same wifi
+4. Find the IP Address of the rasberry pi (You can use Angry IP Scanner)
+5. Connect rasberry pi to your laptop using RealVNC Viewer
 ```
 cd Desktop
 source ./bin/activate
