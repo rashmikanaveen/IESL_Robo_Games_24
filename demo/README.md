@@ -41,7 +41,8 @@ python3 finalgreenballinfinite.py
 ```
 
 ## Raspberry Pi 3: Red Object Detection
-###Steps:
+
+### Steps:
 ## 1. **Boot from USB (if applicable)**
 If you are using a USB for booting instead of an SD card:
 - Remove all USB devices except the bootable USB.
