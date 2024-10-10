@@ -48,6 +48,8 @@ Run the relevant code using the following line
 python testFinalInfinity.py
 ```
 
+**If you are changing things inside the rasberry pi, then change your paths accordingly**
+
 # If there is a problem,
 1. Call 0765820661 - Sahan
 2. Call 0787057255 - Rashmika
