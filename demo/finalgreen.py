@@ -193,7 +193,7 @@ def main():
             cv2.rectangle(frame, (0, black_box_start), (FRAME_WIDTH, FRAME_HEIGHT), (0, 0, 0), -1)
 
             # Convert BGR to HSV for green processing
-            hsv = cv2.cvtColor(processed_frame, cv2.COLOR_BGR2HSV)
+            hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
 
             # Define the lower and upper bounds for green color in HSV with reduced sensitivity
             lower_green = np.array([40, 40, 40])
