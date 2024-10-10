@@ -31,6 +31,7 @@ Use rasberry pi 3 to detect the red object only
 4. Check whether your laptop and rasberry pi are connceted to the same wifi
 4. Find the IP Address of the rasberry pi (You can use Angry IP Scanner)
 5. Connect rasberry pi to your laptop using RealVNC Viewer
+6. Open the terminal
 ```
 cd Desktop
 source ./bin/activate
