@@ -32,41 +32,41 @@ This guide provides steps to set up Raspberry Pi 5 and Raspberry Pi 3 to detect 
    cd demo
 
 * To track and place the green ball once, run:
-```
+```python
 python3 finalgreenball.py
 ```
 * To track and place the green ball in a continuous loop, run:
-```
+```python
 python3 finalgreenballinfinite.py
 ```
 
 ## Raspberry Pi 3: Red Object Detection
 
 ### Steps:
-## 1. **Boot from USB (if applicable)**
+1. **Boot from USB (if applicable)**
 If you are using a USB for booting instead of an SD card:
 - Remove all USB devices except the bootable USB.
 - Connect other USB devices after the booting process is complete.
 
-## 2. **Turn On the Kobuki**
+2. **Turn On the Kobuki**
 Ensure the Kobuki robot is powered on.
 
-## 3. **Connect Raspberry Pi 3 to a Screen**
+3. **Connect Raspberry Pi 3 to a Screen**
 Similar to the Raspberry Pi 5, it is recommended to connect a monitor for checking the setup.
 
-## 4. **Ensure the Same Wi-Fi Network**
+4. **Ensure the Same Wi-Fi Network**
 Ensure both your laptop and Raspberry Pi 3 are connected to the same Wi-Fi network.
 
-## 5. **Find Raspberry Pi's IP Address**
+5. **Find Raspberry Pi's IP Address**
 Use Angry IP Scanner to find the IP address of Raspberry Pi 3.
 
-## 6. **Connect Using RealVNC Viewer**
+6. **Connect Using RealVNC Viewer**
 Connect to Raspberry Pi 3 using RealVNC Viewer via its IP address.
 
-## 7. **Run the Red Object Detection Script**
+7. **Run the Red Object Detection Script**
 Open the terminal and navigate to the relevant folder to run the red object detection script.
 
-```
+```bash
 cd Desktop
 source ./bin/activate
 cd 'New folder'
@@ -74,11 +74,11 @@ cd Kobuki-python
 cd demo
 ```
 * To track and place the red object once, run:
-```
+```python
 python testFinalOnce.py
 ```
 * To track and place the red object in a continuous loop, run:
-```
+```python
 python testFinalInfinity.py
 ```
 ## Troubleshooting
@@ -88,5 +88,7 @@ Sahan - 0765820661
 Rashmika - 0787057255
 Dineth - 0714559195
 
-*** Note:
-If you modify anything within Raspberry Pi, remember to adjust the paths accordingly. ***
+*** 
+Note:
+If you modify anything within Raspberry Pi, remember to adjust the paths accordingly. 
+***
