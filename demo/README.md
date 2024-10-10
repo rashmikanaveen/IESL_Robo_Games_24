@@ -5,7 +5,6 @@ This guide provides steps to set up Raspberry Pi 5 and Raspberry Pi 3 to detect 
 ## Raspberry Pi 5: Green Object Detection
 
 ### Steps:
-
 1. **Turn On the Kobuki**  
    Ensure the Kobuki robot is powered on before proceeding.
 
@@ -81,11 +80,12 @@ python testFinalOnce.py
 ```
 python testFinalInfinity.py
 ```
-Troubleshooting
+## Troubleshooting
 If you encounter any issues, feel free to contact the following people for assistance:
 
 Sahan - 0765820661
 Rashmika - 0787057255
 Dineth - 0714559195
-Note:
-If you modify anything within Raspberry Pi, remember to adjust the paths accordingly.
+
+*** Note:
+If you modify anything within Raspberry Pi, remember to adjust the paths accordingly. ***
